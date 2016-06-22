@@ -44,7 +44,7 @@ public interface MyBagInterface<T> {
 	 * This method removes one object from the bag. It is important to note that this is
 	 * a "random" object. No order is required for this access.
 	 * 
-	 * @return the removed object is returned.
+	 * @return the removed object is returned, null if empty
 	 */
 	public T remove();
 	

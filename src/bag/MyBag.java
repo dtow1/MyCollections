@@ -1,6 +1,17 @@
 package bag;
 
 public class MyBag<T> implements MyBagInterface<T>{
+	private T[] bagArray;
+	private int capacity;
+	private int itemCount;
+	
+	MyBag(){
+		itemCount=0;
+		capacity=5;
+		@SuppressWarnings("unchecked")
+		T[] tempBag = (T[]) new Object[capacity];
+		bagArray = tempBag;
+	}
 
 	@Override
 	public int getCurrentSize() {
