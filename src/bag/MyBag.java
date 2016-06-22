@@ -1,5 +1,7 @@
 package bag;
 
+import java.util.Arrays;
+
 public class MyBag<T> implements MyBagInterface<T>{
 	private T[] bagArray;
 	private int capacity;
@@ -15,39 +17,53 @@ public class MyBag<T> implements MyBagInterface<T>{
 
 	@Override
 	public int getCurrentSize() {
-		// TODO Auto-generated method stub
-		return 0;
+		return itemCount;
 	}
 
 	@Override
 	public boolean isFull() {
-		// TODO Auto-generated method stub
-		return false;
+		return itemCount==capacity;
 	}
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return itemCount==0;
 	}
 
 	@Override
 	public boolean add(T newEntry) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean result = false;
+		if(newEntry != null && itemCount<capacity){
+			bagArray[itemCount]=newEntry;
+			itemCount++;
+			result=true;
+		}
+
+		return result;
 	}
 
 	@Override
 	public T remove() {
-		// TODO Auto-generated method stub
-		return null;
+		T tempItem = null;
+		if(itemCount>0){
+			tempItem = bagArray[itemCount-1];
+			bagArray[--itemCount]=null;
+		}
+
+		return tempItem;
 	}
 
 	@Override
 	public boolean remove(T anEntry) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean status = false;
+		if(itemCount>0 && contains(anEntry)){
+			T tempItem = bagArray[itemCount-1];
+			bagArray[--itemCount]=null;
+			status=true;
+		}
+		return status;
 	}
+	
 
 	@Override
 	public void clear() {
@@ -63,14 +79,20 @@ public class MyBag<T> implements MyBagInterface<T>{
 
 	@Override
 	public boolean contains(T anEntry) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean found = false;
+		if(itemCount>0){
+			for(int i=0;i<itemCount;i++){
+				if(bagArray[i].equals(anEntry)){
+					found=true;
+				}
+			}
+		}
+		return found;
 	}
 
 	@Override
 	public T[] toArray() {
-		// TODO Auto-generated method stub
-		return null;
+		return Arrays.copyOf(bagArray, itemCount);
 	}
 
 

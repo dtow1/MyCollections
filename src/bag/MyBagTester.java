@@ -1,5 +1,7 @@
 package bag;
 
+import java.util.Arrays;
+
 public class MyBagTester {
 
 	public static void main(String[] args) {
@@ -21,7 +23,7 @@ public class MyBagTester {
 		
 		//Bag with 5 elements
 		System.out.println("Should be 5(5 elements in bag): " + bag.getCurrentSize());
-		System.out.println("Should be False(not full): " + bag.isFull());
+		System.out.println("Should be True(full): " + bag.isFull());
 		System.out.println("Should be False (empty): " + bag.isEmpty() + "\n");		
 		
 		//Add data to a full bag
@@ -29,21 +31,22 @@ public class MyBagTester {
 		System.out.println("Should be 5(5 elements in bag): " + bag.getCurrentSize() + "\n");	
 
 		//Check count of object type
-		System.out.println("Number of coyote, should be 2" + bag.getFrequencyOf("coyote"));
-		System.out.println("Number of dingo, should be 1" + bag.getFrequencyOf("dingo") + "\n");
+		System.out.println("Number of coyote, should be 2: " + bag.getFrequencyOf("coyote"));
+		System.out.println("Number of dingo, should be 1: " + bag.getFrequencyOf("dingo") + "\n");
 		
 		//Check contains
 		System.out.println("Contains dingo? Should be true: " + bag.contains("dingo"));
 		System.out.println("Contains warg? Should be false: " + bag.contains("warg") + "\n");
 		
 		//Check toArray
-		System.out.println("Test toArray. Should contain coyote, coyote, dingo, wolf, and dog, but in any order. \n" + bag.toArray() + "\n");
+		System.out.println("Test toArray. Should contain coyote, coyote, dingo, wolf, and dog, but in any order. \n" + Arrays.toString(bag.toArray()) + "\n");
+
 		
 		//check remove(anObject)
 		System.out.println("Remove a coyote, should be true: " + bag.remove("coyote"));
-		System.out.println("Test toArray. Should contain coyote, coyote, dingo, wolf, and dog, but in any order. \n" + bag.toArray());
+		System.out.println("Test toArray. Should contain coyote, coyote, dingo, wolf, and dog, but in any order. \n" + Arrays.toString(bag.toArray()));
 		System.out.println("Should be 4(4 elements in bag): " + bag.getCurrentSize()  + "\n");
-		
+
 		//check remove()
 		System.out.println("Remove a random object, should be some object from the bag: " + bag.remove());
 		System.out.println("Should be 3(3 elements in bag): " + bag.getCurrentSize() +  "\n");
