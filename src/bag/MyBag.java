@@ -74,8 +74,15 @@ public class MyBag<T> implements MyBagInterface<T>{
 
 	@Override
 	public int getFrequencyOf(T anEntry) {
-		// TODO Auto-generated method stub
-		return 0;
+		int count = 0;
+		
+		for(int i=0;i<bagArray.length; i++){
+			if(bagArray[i].equals(anEntry)){
+				count++;
+			}
+		}
+		
+		return count;
 	}
 
 	@Override
