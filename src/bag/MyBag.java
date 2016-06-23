@@ -10,9 +10,7 @@ public class MyBag<T> implements MyBagInterface<T>{
 	MyBag(){
 		itemCount=0;
 		capacity=5;
-		@SuppressWarnings("unchecked")
-		T[] tempBag = (T[]) new Object[capacity];
-		bagArray = tempBag;
+		clear();
 	}
 
 	@Override
@@ -67,7 +65,10 @@ public class MyBag<T> implements MyBagInterface<T>{
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
+		@SuppressWarnings("unchecked")
+		T[] tempBag = (T[]) new Object[capacity];
+		bagArray = tempBag;
+		itemCount=0;
 		
 	}
 
