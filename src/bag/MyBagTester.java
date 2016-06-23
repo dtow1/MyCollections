@@ -58,7 +58,7 @@ public class MyBagTester {
 		
 		//check remove on an empty bag()
 		System.out.println("Try to remove an object from an empty bag, should be null: " + bag.remove());
-		System.out.println("Try to remove a warg from an empty bag, should be false: " + bag.remove());
+		System.out.println("Try to remove a warg from an empty bag, should be false: " + bag.remove("warg"));
 		System.out.println("Should be False(not full): " + bag.isFull());
 		System.out.println("Should be true (empty): " + bag.isEmpty() + "\n");	
 		
