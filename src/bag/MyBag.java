@@ -31,15 +31,32 @@ public class MyBag<T> implements MyBagInterface<T>{
 	@Override
 	public boolean add(T newEntry) {
 		boolean result = false;
-		if(newEntry != null && itemCount<capacity){
+		if(newEntry != null){
+			if(isFull()){
+				biggerBag();
+			}
 			bagArray[itemCount]=newEntry;
+			System.out.println("item count: " + itemCount + " item: " + bagArray[itemCount] + " " + bagArray.length);
 			itemCount++;
 			result=true;
+			
 		}
+
 
 		return result;
 	}
 
+	public boolean biggerBag(){
+		capacity *= 2;
+		
+		@SuppressWarnings("unchecked")
+		//T[] tempBag = (T[]) new Object[capacity];
+		T[] tempBag = Arrays.copyOf(bagArray, capacity);
+		bagArray = tempBag;
+		System.out.println("bag is bigger " + bagArray.length);
+		return true;
+	}
+	
 	@Override
 	public T remove() {
 		T tempItem = null;
@@ -76,7 +93,8 @@ public class MyBag<T> implements MyBagInterface<T>{
 	public int getFrequencyOf(T anEntry) {
 		int count = 0;
 		
-		for(int i=0;i<bagArray.length; i++){
+		for(int i=0;i<itemCount; i++){
+			System.out.println(i);
 			if(bagArray[i].equals(anEntry)){
 				count++;
 			}
