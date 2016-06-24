@@ -36,7 +36,6 @@ public class MyBag<T> implements MyBagInterface<T>{
 				biggerBag();
 			}
 			bagArray[itemCount]=newEntry;
-			System.out.println("item count: " + itemCount + " item: " + bagArray[itemCount] + " " + bagArray.length);
 			itemCount++;
 			result=true;
 			
@@ -46,15 +45,10 @@ public class MyBag<T> implements MyBagInterface<T>{
 		return result;
 	}
 
-	public boolean biggerBag(){
+	public void biggerBag(){
 		capacity *= 2;
-		
-		@SuppressWarnings("unchecked")
-		//T[] tempBag = (T[]) new Object[capacity];
 		T[] tempBag = Arrays.copyOf(bagArray, capacity);
 		bagArray = tempBag;
-		System.out.println("bag is bigger " + bagArray.length);
-		return true;
 	}
 	
 	@Override
