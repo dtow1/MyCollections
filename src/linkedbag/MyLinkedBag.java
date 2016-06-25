@@ -86,8 +86,9 @@ public class MyLinkedBag<T> implements MyBagInterface<T>{
 
 	@Override
 	public void clear() {
-
-		
+		first=null;
+		last=null;
+		itemCount=0;
 	}
 
 	@Override
