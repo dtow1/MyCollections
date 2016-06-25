@@ -2,12 +2,12 @@ package linkedbag;
 
 import java.util.Arrays;
 
-public class MyBagTester {
+public class MyLinkedBagBagTester {
 
 	public static void main(String[] args) {
 		
 		//Instantiate using the default constructor
-		MyBag<String> bag = new MyBag<String>();
+		MyLinkedBag<String> bag = new MyLinkedBag<String>();
 		
 		//Empty bag
 		System.out.println("Should be 0(0 elements in bag): " + bag.getCurrentSize());

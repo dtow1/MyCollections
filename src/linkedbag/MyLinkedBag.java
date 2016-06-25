@@ -9,7 +9,7 @@ package linkedbag;
  *
  * @param <T>
  */
-public class MyBag<T> implements MyBagInterface<T>{
+public class MyLinkedBag<T> implements MyBagInterface<T>{
 	private Node first;
 	private Node last;
 	private int itemCount;
@@ -17,7 +17,7 @@ public class MyBag<T> implements MyBagInterface<T>{
 	/**
 	 * Default constructor. Set initial conditions and generate first bag array
 	 */
-	MyBag(){
+	MyLinkedBag(){
 		itemCount=0;
 		first=null;
 		last=null;
@@ -47,13 +47,14 @@ public class MyBag<T> implements MyBagInterface<T>{
 				first=tempNode;
 				last=tempNode;
 				first.setData(newEntry);
-				result=false;
+				itemCount++;
 			}else{
 				last.setNextNode(tempNode);
 				tempNode.setPrevNode(last);
 				last=tempNode;
-				result=false;
+				itemCount++;
 			}
+			result=true;
 		}
 		return result;
 	}
@@ -61,12 +62,12 @@ public class MyBag<T> implements MyBagInterface<T>{
 	
 	@Override
 	public T remove() {
-
+		return null;
 	}
 
 	@Override
 	public boolean remove(T anEntry) {
-
+		return false;
 	}
 	
 
@@ -78,17 +79,28 @@ public class MyBag<T> implements MyBagInterface<T>{
 
 	@Override
 	public int getFrequencyOf(T anEntry) {
-
+		int count=-1;
+		if(anEntry != null&&first!=null){
+			count=0;
+			Node tempNode=first;
+			while(tempNode.getNextNode()!=null){
+				if(tempNode.getData().equals(anEntry)){
+					count++;
+				}
+				tempNode=tempNode.getNextNode();
+			}
+		}
+		return count;
 	}
 
 	@Override
 	public boolean contains(T anEntry) {
-
+		return false;
 	}
 
 	@Override
 	public T[] toArray() {
-
+		return null;
 	}
 
 
