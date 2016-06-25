@@ -71,7 +71,16 @@ public class MyLinkedBag<T> implements MyBagInterface<T>{
 
 	@Override
 	public boolean remove(T anEntry) {
-		return false;
+		boolean found=false;
+		if(anEntry != null && first!=null){
+			Node tempNode=first;
+			while(tempNode.getNextNode()!=null&&!found){
+				if(tempNode.getData().equals(anEntry)){
+					found=true;
+				}
+			}
+		}
+		return found;
 	}
 	
 
