@@ -77,6 +77,9 @@ public class MyLinkedBag<T> implements MyBagInterface<T>{
 			while(tempNode.getNextNode()!=null&&!found){
 				if(tempNode.getData().equals(anEntry)){
 					found=true;
+					System.out.println(itemCount);
+					itemCount--;
+					System.out.println(itemCount);
 				}
 			}
 		}
@@ -97,7 +100,7 @@ public class MyLinkedBag<T> implements MyBagInterface<T>{
 		if(anEntry != null&&first!=null){
 			count=0;
 			Node tempNode=first;
-			while(tempNode.getNextNode()!=null){
+			while(tempNode!=null){
 				if(tempNode.getData().equals(anEntry)){
 					count++;
 				}
@@ -112,7 +115,7 @@ public class MyLinkedBag<T> implements MyBagInterface<T>{
 		boolean result = false;
 		if(anEntry!=null &&first!=null){
 			Node tempNode=first;
-			while(tempNode.getNextNode()!=null){
+			while(tempNode!=null){
 				if(tempNode.getData().equals(anEntry)){
 					result = true;
 				}
@@ -125,7 +128,18 @@ public class MyLinkedBag<T> implements MyBagInterface<T>{
 
 	@Override
 	public T[] toArray() {
-		return null;
+		T[] tempArray = (T[]) new Object[itemCount];
+		int i = 0;
+		Node tempNode = first;
+		while(tempNode!=null){
+			if(tempNode.getData()!=null){
+				tempArray[i]=(T) tempNode.getData();
+				tempNode = tempNode.getNextNode();
+				i++;
+			}
+		}
+		
+		return tempArray;
 	}
 
 

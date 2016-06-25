@@ -31,6 +31,8 @@ public class MyLinkedBagBagTester {
 		//Check contains
 		System.out.println("Contains dingo? Should be true: " + bag.contains("dingo"));
 		System.out.println("Contains dog? Should be true: " + bag.contains("dog"));
+		System.out.println("Contains coyote? Should be true: " + bag.contains("coyote"));
+		System.out.println("Contains wolf? Should be true: " + bag.contains("wolf"));
 		System.out.println("Contains warg? Should be false: " + bag.contains("warg") + "\n");
 		
 		//Check toArray
