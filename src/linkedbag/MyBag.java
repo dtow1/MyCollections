@@ -1,7 +1,5 @@
 package linkedbag;
 
-import java.util.Arrays;
-
 /**
  * This is my Bag class it is implemented using a linked list.
  * 
@@ -12,8 +10,8 @@ import java.util.Arrays;
  * @param <T>
  */
 public class MyBag<T> implements MyBagInterface<T>{
-	private T[] bagArray;
-	private int capacity;
+	private Node first;
+	private Node last;
 	private int itemCount;
 	
 	/**
@@ -21,9 +19,8 @@ public class MyBag<T> implements MyBagInterface<T>{
 	 */
 	MyBag(){
 		itemCount=0;
-		capacity=5;
-		//Clear sets bagArray to a new empty array of size "capacity"
-		clear();
+		first=null;
+		last=null;
 	}
 
 	@Override
@@ -33,7 +30,7 @@ public class MyBag<T> implements MyBagInterface<T>{
 
 	@Override
 	public boolean isFull() {
-		return itemCount==capacity;
+		return false;
 	}
 
 	@Override
@@ -45,91 +42,53 @@ public class MyBag<T> implements MyBagInterface<T>{
 	public boolean add(T newEntry) {
 		boolean result = false;
 		if(newEntry != null){
-			if(isFull()){
-				biggerBag();
+			Node tempNode = new Node(newEntry);
+			if(itemCount==0){
+				first=tempNode;
+				last=tempNode;
+				first.setData(newEntry);
+				result=false;
+			}else{
+				last.setNextNode(tempNode);
+				tempNode.setPrevNode(last);
+				last=tempNode;
+				result=false;
 			}
-			bagArray[itemCount]=newEntry;
-			itemCount++;
-			result=true;
-			
 		}
-
-
 		return result;
 	}
 
-	/**
-	 *  This method multiplies the current bag size by two and returns the new larger bag. The contents of the
-	 *  first bag are copied into the new bag.
-	 */
-	public void biggerBag(){
-		capacity *= 2;
-		T[] tempBag = Arrays.copyOf(bagArray, capacity);
-		bagArray = tempBag;
-	}
 	
 	@Override
 	public T remove() {
-		T tempItem = null;
-		if(itemCount>0){
-			tempItem = bagArray[itemCount-1];
-			bagArray[--itemCount]=null;
-		}
 
-		return tempItem;
 	}
 
 	@Override
 	public boolean remove(T anEntry) {
-		boolean status = false;
-		if(itemCount>0 && contains(anEntry)){
-			T tempItem = bagArray[itemCount-1];
-			bagArray[--itemCount]=null;
-			status=true;
-		}
-		return status;
+
 	}
 	
 
 	@Override
 	public void clear() {
-		@SuppressWarnings("unchecked")
-		T[] tempBag = (T[]) new Object[capacity];
-		bagArray = tempBag;
-		itemCount=0;
+
 		
 	}
 
 	@Override
 	public int getFrequencyOf(T anEntry) {
-		int count = 0;
-		
-		for(int i=0;i<itemCount; i++){
-			System.out.println(i);
-			if(bagArray[i].equals(anEntry)){
-				count++;
-			}
-		}
-		
-		return count;
+
 	}
 
 	@Override
 	public boolean contains(T anEntry) {
-		boolean found = false;
-		if(itemCount>0){
-			for(int i=0;i<itemCount;i++){
-				if(bagArray[i].equals(anEntry)){
-					found=true;
-				}
-			}
-		}
-		return found;
+
 	}
 
 	@Override
 	public T[] toArray() {
-		return Arrays.copyOf(bagArray, itemCount);
+
 	}
 
 
