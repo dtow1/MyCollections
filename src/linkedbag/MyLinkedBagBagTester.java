@@ -23,12 +23,6 @@ public class MyLinkedBagBagTester {
 		
 		//Bag with 5 elements
 		System.out.println("Should be 5(5 elements in bag): " + bag.getCurrentSize());
-		System.out.println("Should be True(full): " + bag.isFull());
-		System.out.println("Should be False (empty): " + bag.isEmpty() + "\n");		
-		
-		//Add data to a full bag
-		System.out.println("Add wolf to full bag, should be false: " + bag.add("wolf"));
-		System.out.println("Should be 5(5 elements in bag): " + bag.getCurrentSize() + "\n");	
 
 		//Check count of object type
 		System.out.println("Number of coyote, should be 2: " + bag.getFrequencyOf("coyote"));

@@ -62,7 +62,11 @@ public class MyLinkedBag<T> implements MyBagInterface<T>{
 	
 	@Override
 	public T remove() {
-		return null;
+		T item=(T) last.getData();
+		last=last.getPrevNode();
+		last.setNextNode(null);
+		itemCount--;
+		return item;
 	}
 
 	@Override
@@ -95,7 +99,18 @@ public class MyLinkedBag<T> implements MyBagInterface<T>{
 
 	@Override
 	public boolean contains(T anEntry) {
-		return false;
+		boolean result = false;
+		if(anEntry!=null &&first!=null){
+			Node tempNode=first;
+			while(tempNode.getNextNode()!=null){
+				if(tempNode.getData().equals(anEntry)){
+					result = true;
+				}
+				tempNode=tempNode.getNextNode();
+			}
+		}
+		
+		return result;
 	}
 
 	@Override
