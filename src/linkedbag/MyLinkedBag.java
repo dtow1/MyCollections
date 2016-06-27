@@ -128,9 +128,10 @@ public class MyLinkedBag<T> implements MyBagInterface<T>{
 
 	@Override
 	public T[] toArray() {
+		@SuppressWarnings("unchecked")
 		T[] tempArray = (T[]) new Object[itemCount];
 		int i = 0;
-		Node tempNode = first;
+		Node<T> tempNode = first;
 		while(tempNode!=null){
 			if(tempNode.getData()!=null){
 				tempArray[i]=(T) tempNode.getData();
