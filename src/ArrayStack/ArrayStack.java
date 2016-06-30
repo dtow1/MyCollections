@@ -48,8 +48,12 @@ public class ArrayStack<T> implements MyStackInterface<T>{
 	
 	@Override
 	public T pop() {
-		// TODO Auto-generated method stub
-		return null;
+		T temp = null;
+		if(count>0){
+			temp=stackArray[--count];
+			stackArray[count]=null;
+		}
+		return temp;
 	}
 
 	@Override
@@ -71,7 +75,6 @@ public class ArrayStack<T> implements MyStackInterface<T>{
 		@SuppressWarnings("unchecked")
 		T[] temp = (T[]) new Object[size];
 		stackArray=temp;
-		
 	}
 
 	
