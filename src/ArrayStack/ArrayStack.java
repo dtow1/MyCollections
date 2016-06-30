@@ -63,8 +63,7 @@ public class ArrayStack<T> implements MyStackInterface<T>{
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return count==0;
 	}
 
 	@Override
