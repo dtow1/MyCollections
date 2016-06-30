@@ -68,7 +68,9 @@ public class ArrayStack<T> implements MyStackInterface<T>{
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
+		@SuppressWarnings("unchecked")
+		T[] temp = (T[]) new Object[size];
+		stackArray=temp;
 		
 	}
 
