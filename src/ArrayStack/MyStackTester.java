@@ -40,21 +40,28 @@ public class MyStackTester {
 		testStack.clear();
 		System.out.println("Test if is empty, should be true : " + testStack.isEmpty());
 
-		
-		
 	}
 	
-	public static void fillStack(ArrayStack toFill){
+	public static void fillStack(ArrayStack<String> toFill){
 		System.out.println("Building the fellowship");
-		System.out.println("Adding Frodo to stack: " + toFill.push("Frodo"));
-		System.out.println("Adding Sam to stack: " + toFill.push("Sam"));
-		System.out.println("Adding Merry to stack: " + toFill.push("Merry"));
-		System.out.println("Adding Pippin to stack: " + toFill.push("Pippin"));
-		System.out.println("Adding Gandalf to stack: " + toFill.push("Gandalf"));
-		System.out.println("Adding Stryder to stack: " + toFill.push("Stryder"));
-		System.out.println("Adding Legolas to stack: " + toFill.push("Legolas"));
-		System.out.println("Adding Gimli to stack: " + toFill.push("Gimli"));
-		System.out.println("Adding Boromir to stack: " + toFill.push("Boromir"));
+		System.out.println("Adding Frodo to stack");
+		toFill.push("Frodo");
+		System.out.println("Adding Sam to stack: ");
+		toFill.push("Sam");
+		System.out.println("Adding Merry to stack: ");
+		toFill.push("Merry");
+		System.out.println("Adding Pippin to stack: ");
+		toFill.push("Pippin");
+		System.out.println("Adding Gandalf to stack: ");
+		toFill.push("Gandalf");
+		System.out.println("Adding Stryder to stack: ");
+		toFill.push("Stryder");
+		System.out.println("Adding Legolas to stack: ");
+		toFill.push("Legolas");
+		System.out.println("Adding Gimli to stack: "); 
+		toFill.push("Gimli");
+		System.out.println("Adding Boromir to stack: ");
+		toFill.push("Boromir");
 	}
 
 }

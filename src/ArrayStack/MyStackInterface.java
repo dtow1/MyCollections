@@ -16,10 +16,9 @@ public interface MyStackInterface <T> {
 	 * Push an item onto the stack.
 	 * 
 	 * @param newItem - The item to be pushed onto the stack
-	 * @return true if successfully pushed onto the stack, false otherwise
 	 * 
 	 */
-	public boolean push(T newItem);
+	public void push(T newItem);
 	
 	/**
 	 * Pop an element off the top of the stack, item is removed from the stack.

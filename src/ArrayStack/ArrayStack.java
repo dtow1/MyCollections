@@ -8,7 +8,7 @@ package ArrayStack;
  *Date: 6/29/2016
  *
  */
-public class ArrayStack<T> implements MyStackInterface{
+public class ArrayStack<T> implements MyStackInterface<T>{
 
 	private T[] stackArray;
 	private int size;
@@ -20,25 +20,40 @@ public class ArrayStack<T> implements MyStackInterface{
 	
 	public ArrayStack(int size){
 		this.size=size;
+		count=0;
 		@SuppressWarnings("unchecked")
 		T[] tempArray = (T[]) new Object[size];
 		stackArray=tempArray;
 	}
 	
 	@Override
-	public boolean push(Object newItem) {
-		
-		return false;
+	public void push(T newItem) {
+		if(isFull()){
+			doubleSize();
+		}
+		stackArray[count++]=(T)newItem;  
 	}
 
+	private void doubleSize(){
+		size *= 2;
+		
+		@SuppressWarnings("unchecked")
+		T[]tempArray = (T[]) new Object[size];
+		stackArray=tempArray;
+	}
+	
+	private boolean isFull(){
+		return size==count;
+	}
+	
 	@Override
-	public Object pop() {
+	public T pop() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Object peek() {
+	public T peek() {
 		// TODO Auto-generated method stub
 		return null;
 	}
