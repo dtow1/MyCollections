@@ -1,5 +1,7 @@
 package ArrayStack;
 
+import java.util.Arrays;
+
 /**
  * A stack implementation that uses an Array
  * 
@@ -36,9 +38,7 @@ public class ArrayStack<T> implements MyStackInterface<T>{
 
 	private void doubleSize(){
 		size *= 2;
-		
-		@SuppressWarnings("unchecked")
-		T[]tempArray = (T[]) new Object[size];
+		T[]tempArray = Arrays.copyOf(stackArray, size);
 		stackArray=tempArray;
 	}
 	
@@ -54,8 +54,11 @@ public class ArrayStack<T> implements MyStackInterface<T>{
 
 	@Override
 	public T peek() {
-		// TODO Auto-generated method stub
-		return null;
+		T temp = null;
+		if(count>0){
+			temp=stackArray[count-1];
+		}
+		return temp;
 	}
 
 	@Override
