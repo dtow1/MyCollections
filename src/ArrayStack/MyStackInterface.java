@@ -32,7 +32,7 @@ public interface MyStackInterface <T> {
 	/**
 	 * Returns the top item on the stack, but does not remove it from the stack.
 	 * 
-	 * @return Returns the object at the top of the stack
+	 * @return Returns the object at the top of the stack or null if empty
 	 */
 	public T peek();
 	
@@ -47,4 +47,5 @@ public interface MyStackInterface <T> {
 	 * Empty the entire stack
 	 */
 	public void clear();
+	
 }
