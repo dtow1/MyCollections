@@ -10,9 +10,24 @@ package ArrayStack;
  */
 public class ArrayStack<T> implements MyStackInterface{
 
+	private T[] stackArray;
+	private int size;
+	private int count;
+	
+	public ArrayStack(){
+		this(5);
+	}
+	
+	public ArrayStack(int size){
+		this.size=size;
+		@SuppressWarnings("unchecked")
+		T[] tempArray = (T[]) new Object[size];
+		stackArray=tempArray;
+	}
+	
 	@Override
 	public boolean push(Object newItem) {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
