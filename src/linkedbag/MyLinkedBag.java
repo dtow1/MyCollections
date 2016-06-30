@@ -9,7 +9,7 @@ package linkedbag;
  *
  * @param <T>
  */
-public class MyLinkedBag<T> implements MyBagInterface<T>{
+public class MyLinkedBag<T extends Comparable<T>> implements MyBagInterface<T>{
 	private Node first;
 	private Node last;
 	private int itemCount;
