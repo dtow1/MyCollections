@@ -14,7 +14,20 @@ public class ListStack<T> implements MyStackInterface<T> {
 	
 	@Override
 	public void push(T newItem) {
-		// TODO Auto-generated method stub
+		if(newItem!=null){
+			Node<T> nextNode=new Node<T>();
+			nextNode.setData(newItem);
+			
+			if(size==0){
+				first=nextNode;
+			}else{
+				last.setNextNode(nextNode);
+				nextNode.setPrevNode(last);
+			}
+			
+			last=nextNode;
+			size++;
+		}
 		
 	}
 
@@ -26,7 +39,11 @@ public class ListStack<T> implements MyStackInterface<T> {
 
 	@Override
 	public T peek() {
-		return last.getData();
+		T data= null;
+		if(size>0){
+			data = last.getData();
+		}
+		return data; 
 	}
 
 	@Override
