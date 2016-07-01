@@ -1,4 +1,6 @@
-package ArrayStack;
+package ListStack;
+
+import ArrayStack.MyStackInterface;
 
 public class MyListStackTester {
 

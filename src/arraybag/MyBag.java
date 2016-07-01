@@ -1,4 +1,4 @@
-package bag;
+package arraybag;
 
 import java.util.Arrays;
 

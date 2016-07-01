@@ -1,4 +1,4 @@
-package ArrayStack;
+package ListStack;
 
 /**
  * This class creates a node to be used in a linked list
