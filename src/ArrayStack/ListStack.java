@@ -2,16 +2,14 @@ package ArrayStack;
 
 public class ListStack<T> implements MyStackInterface<T> {
 
-	private T[] stackArray;
+	private Node first;
+	private Node last;
 	private int size;
-	private int count;
 	
 	public ListStack(){
-		this(5);
-	}
-	
-	public ListStack(int size){
-
+		size=0;
+		first=null;
+		last=null;
 	}
 	
 	@Override
