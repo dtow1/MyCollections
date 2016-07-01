@@ -33,8 +33,20 @@ public class ListStack<T> implements MyStackInterface<T> {
 
 	@Override
 	public T pop() {
-		// TODO Auto-generated method stub
-		return null;
+		T data = null;
+		
+		if(size>0){
+			data = last.getData();
+			if(size==1){
+				last=null;
+				first=null;
+			}else{
+				last=last.getPrevNode();
+			}
+			size--;
+		}
+		
+		return data;
 	}
 
 	@Override
