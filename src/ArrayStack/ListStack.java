@@ -7,9 +7,7 @@ public class ListStack<T> implements MyStackInterface<T> {
 	private int size;
 	
 	public ListStack(){
-		size=0;
-		first=null;
-		last=null;
+		clear();
 	}
 	
 	@Override
@@ -65,7 +63,9 @@ public class ListStack<T> implements MyStackInterface<T> {
 
 	@Override
 	public void clear() {
-		
+		last=null;
+		first=null;
+		size=0;
 	}
 
 }
