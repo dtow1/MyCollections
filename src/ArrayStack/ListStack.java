@@ -2,8 +2,8 @@ package ArrayStack;
 
 public class ListStack<T> implements MyStackInterface<T> {
 
-	private Node first;
-	private Node last;
+	private Node<T> first;
+	private Node<T> last;
 	private int size;
 	
 	public ListStack(){
@@ -26,8 +26,7 @@ public class ListStack<T> implements MyStackInterface<T> {
 
 	@Override
 	public T peek() {
-		// TODO Auto-generated method stub
-		return null;
+		return last.getData();
 	}
 
 	@Override
