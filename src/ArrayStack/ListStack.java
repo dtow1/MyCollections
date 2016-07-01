@@ -32,13 +32,11 @@ public class ListStack<T> implements MyStackInterface<T> {
 
 	@Override
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return size==0;
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
 		
 	}
 
