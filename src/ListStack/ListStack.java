@@ -1,5 +1,7 @@
 package ListStack;
 
+import java.util.EmptyStackException;
+
 import ArrayStack.MyStackInterface;
 
 public class ListStack<T> implements MyStackInterface<T> {
