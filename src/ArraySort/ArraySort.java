@@ -43,4 +43,20 @@ public class ArraySort<T>{
 		}
 	}
 	
+	public <T extends Comparable <? super T>> void recursiveSelectionSort(T[] array){
+		selectionSort(array,false);
+	}
+	
+	public <T extends Comparable <? super T>> void recursiveSelectionSort(T[] array, boolean verbose){
+		selectionSort(array,verbose,false);
+	}
+	
+	public <T extends Comparable <? super T>> void recursiveSelectionSort(T[] array, boolean verbose, boolean reverse){
+		if(array.length>1){
+			if(verbose){
+				System.out.println(Arrays.toString(array));
+			}	
+		}
+	}
+	
 }
