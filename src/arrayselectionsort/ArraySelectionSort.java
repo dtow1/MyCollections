@@ -1,11 +1,19 @@
-package ArraySort;
+package arrayselectionsort;
 
 import java.util.Arrays;
 
-public class ArraySort<T>{
+/**
+ * @author jasonboyer
+ * 
+ * This class is an implementation of the selection sort. It is an exercise in using Java, generics, and refreshing my memory of
+ * Algorithms and data structures.
+ *
+ * @param <T>
+ */
+public class ArraySelectionSort<T>{
 
 	public <T extends Comparable <? super T>> void selectionSort(T[] array){
-		selectionSort(array,false);
+		selectionSort(array,false, false);
 	}
 	
 	public <T extends Comparable <? super T>> void selectionSort(T[] array, boolean verbose){

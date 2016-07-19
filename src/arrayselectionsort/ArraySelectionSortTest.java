@@ -1,8 +1,8 @@
-package ArraySort;
+package arrayselectionsort;
 
 import java.util.Arrays;
 
-public class ArraySortTest {
+public class ArraySelectionSortTest {
 
 	public static void main(String[] args) {
 		
@@ -10,9 +10,9 @@ public class ArraySortTest {
 		Integer[] intArray2 = {10,13,4,8,232,1,2,382,81,1};
 		
 		
-		ArraySort<Integer> test = new ArraySort<Integer>();
+		ArraySelectionSort<Integer> test = new ArraySelectionSort<Integer>();
 		
-		System.out.println("Testing selction sort Forward");
+		System.out.println("Testing selection sort Forward");
 		test.selectionSort(intArray,true);
 		System.out.println("Sorted Array: " + Arrays.toString(intArray));
 		
@@ -21,13 +21,13 @@ public class ArraySortTest {
 		test.selectionSort(intArray,true,true);
 		System.out.println("Sorted Array: " + Arrays.toString(intArray));
 
-		System.out.println("Testing recursive selction sort Forward");
-		test.selectionSort(intArray,true);
+		System.out.println("Testing recursive selection sort Forward");
+		test.recursiveSelectionSort(intArray,true);
 		System.out.println("Sorted Array: " + Arrays.toString(intArray2));
 		
 		
 		System.out.println("Testing recursive selection sort backward");
-		test.selectionSort(intArray,true,true);
+		test.recursiveSelectionSort(intArray,true,true);
 		System.out.println("Sorted Array: " + Arrays.toString(intArray2));
 		
 	}
