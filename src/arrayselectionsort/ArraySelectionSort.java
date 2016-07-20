@@ -83,7 +83,10 @@ public class ArraySelectionSort<T>{
 	
 	public <T extends Comparable <? super T>> void recursiveSelectionSort(T[] array, boolean verbose, boolean reverse){
 		if(array.length>1){
-			recursiveHelper(array,verbose,reverse,0);
+			if(!reverse)
+				recursiveHelper(array,verbose,reverse,0);
+			else
+				recursiveHelper(array,verbose,reverse,array.length-1);
 		}
 	}
 	
@@ -91,20 +94,38 @@ public class ArraySelectionSort<T>{
 		if(verbose){
 			System.out.println(Arrays.toString(array));
 		}
-		if(first<array.length){
-			T tempObject = null;
-			int smallestLoc = first;
-			for(int i = 0;i<0; i++){
-				if(array[i].compareTo(array[smallestLoc])<0){
-					smallestLoc=i;
+		if(!reverse){
+			if(first<array.length){
+				T tempObject = null;
+				int smallestLoc = first;
+				for(int i = 0;i<0; i++){
+					if(array[i].compareTo(array[smallestLoc])<0){
+						smallestLoc=i;
+					}
 				}
+				tempObject = array[first];
+				array[first] = array[smallestLoc];
+				array[smallestLoc] = tempObject;
+				recursiveHelper(array,verbose,reverse,first+1);			
+			} else {
 			}
-			tempObject = array[first];
-			array[first] = array[smallestLoc];
-			array[smallestLoc] = tempObject;
-			recursiveHelper(array,verbose,reverse,first+1);			
-		} else {
-			//Do nothing, exit function
+		}else{
+			//Sort in reverse
+			if(first>0){
+				T tempObject = null;
+				int smallestLoc = first;
+				for(int i = first;i>=0; i--){
+					if(array[i].compareTo(array[smallestLoc])<0){
+						smallestLoc=i;
+					}
+				}
+				tempObject = array[first];
+				array[first] = array[smallestLoc];
+				array[smallestLoc] = tempObject;
+				recursiveHelper(array,verbose,reverse,first-1);
+			} else {
+			}
+
 		}
 	}
 	

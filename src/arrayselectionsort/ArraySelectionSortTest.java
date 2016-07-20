@@ -22,12 +22,12 @@ public class ArraySelectionSortTest {
 		System.out.println("Sorted Array: " + Arrays.toString(intArray));
 
 		System.out.println("Testing recursive selection sort Forward");
-		test.recursiveSelectionSort(intArray,true);
+		test.recursiveSelectionSort(intArray2,true);
 		System.out.println("Sorted Array: " + Arrays.toString(intArray2));
 		
 		
 		System.out.println("Testing recursive selection sort backward");
-		test.recursiveSelectionSort(intArray,true,true);
+		test.recursiveSelectionSort(intArray2,true,true);
 		System.out.println("Sorted Array: " + Arrays.toString(intArray2));
 		
 	}
