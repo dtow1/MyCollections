@@ -25,20 +25,48 @@ public class ArrayInsertionSort<T> {
 		if(array.length>1){
 			T temp = null;
 			int j;
-			for(int i=1;i<array.length;i++){
-				/* Check against the last sorted element, then work backward toward the first element
-				 * and shift elements up until you find the spot where the temp value is larger.
-				 */
-				j=i-1;
-				temp = array[i];
-				
-				while(j>=0 && temp.compareTo(array[j])<0){
-					array[j+1] = array[j];
-					j--;
+			if(!reverse){
+				for(int i=1;i<array.length;i++){
+					/* Check against the last sorted element, then work backward toward the first element
+					 * and shift elements up until you find the spot where the temp value is larger.
+					 */
+					j=i-1;
+					temp = array[i];
+					
+					while(j>=0 && temp.compareTo(array[j])<0){
+						array[j+1] = array[j];
+						j--;
+						if(verbose){
+							System.out.print("[");
+							for(int printlcv=0;printlcv<array.length-1;printlcv++){
+								System.out.print(array[printlcv] + " , ");
+							}
+							System.out.println(array[array.length-1] + "]");
+						}
+					}
+					array[j+1]=temp;
 				}
-				array[j+1]=temp;
+			}else{
+				for(int i=array.length-1;i>=0;i--){
+					/* 
+					 * Reverse the algorithm.
+					 */
+					j=i+1;
+					temp = array[i];
+					while(j<=array.length-1 && temp.compareTo(array[j])<0){
+						array[j-1] = array[j];
+						j++;
+						if(verbose){
+							System.out.print("[");
+							for(int printlcv=0;printlcv<array.length-1;printlcv++){
+								System.out.print(array[printlcv] + " , ");
+							}
+							System.out.println(array[array.length-1] + "]");
+						}
+					}
+					array[j-1]=temp;
+				}
 			}
-			
 		}
 		
 	}
