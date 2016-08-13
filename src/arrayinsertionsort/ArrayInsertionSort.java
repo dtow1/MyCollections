@@ -26,9 +26,12 @@ public class ArrayInsertionSort<T> {
 			T temp = null;
 			int j;
 			for(int i=1;i<array.length;i++){
+				/* Check against the last sorted element, then work backward toward the first element
+				 * and shift elements up until you find the spot where the temp value is larger.
+				 */
 				j=i-1;
 				temp = array[i];
-				System.out.println("array[i] " + array[i] + " temp " + temp + " array[j] " + array[j] + " compare " + temp.compareTo(array[j]) + " j " + j);
+				
 				while(j>=0 && temp.compareTo(array[j])<0){
 					array[j+1] = array[j];
 					j--;
