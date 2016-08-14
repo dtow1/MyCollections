@@ -33,9 +33,14 @@ public class ArrayInsertionSort<T> {
 					j=i-1;
 					temp = array[i];
 					
+					/* Compare the current unsorted element until you finish the list or find an element that is smaller
+					 * then the current unsorted element
+					 */
 					while(j>=0 && temp.compareTo(array[j])<0){
 						array[j+1] = array[j];
 						j--;
+						
+						/* Display the current status of the array */
 						if(verbose){
 							System.out.print("[");
 							for(int printlcv=0;printlcv<array.length-1;printlcv++){
